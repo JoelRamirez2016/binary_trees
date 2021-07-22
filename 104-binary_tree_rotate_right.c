@@ -13,22 +13,23 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 	{
 		new_root = tree->left;
 		new_left_root = new_root->right;
-		new_root->right = tree;
-		tree->left = new_left_root;
-
-		if (new_left_root)
-			new_left_root->parent = tree->left;
-
 		new_root->parent = tree->parent;
-		tree->parent = new_root;
 
-		if (new_root->parent)
+		if (tree->parent)
 		{
 			if (tree->parent->left == tree)
 				tree->parent->left = new_root;
 			else
 				tree->parent->right = new_root;
 		}
+
+		tree->left = new_left_root;
+
+		if (new_left_root)
+			new_left_root->parent = tree;
+
+		new_root->right = tree;
+		tree->parent = new_root;
 	}
 
 	return (new_root);
