@@ -18,6 +18,7 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  * @tree: pointer to the root node of the tree to check
  * @min: min value for check in each subtree
  * @max: max value for check in each subtree
+ * Return: 1 if tree is a valid BST, and 0 otherwise
  */
 int isBST(const binary_tree_t *tree, int min, int max)
 {
@@ -28,5 +29,5 @@ int isBST(const binary_tree_t *tree, int min, int max)
 		return (0);
 
 	return (isBST(tree->left, min, tree->n - 1) &&
-		isBST(tree->right, tree->n + 1 , max));
+		isBST(tree->right, tree->n + 1, max));
 }

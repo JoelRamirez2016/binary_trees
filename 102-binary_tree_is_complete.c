@@ -18,6 +18,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
  * @tree: pointer to the root node of the tree to check
  * @node_index: position of the node in a imaginary array
  * @size: number of nodes in the tree
+ * Return: 1 if a binary tree is complete, otherwise 0
  */
 int is_complete(const binary_tree_t *tree, int node_index, int size)
 {
@@ -27,6 +28,6 @@ int is_complete(const binary_tree_t *tree, int node_index, int size)
 	if (node_index >= size)
 		return (0);
 
-	return (is_complete(tree->left, 2 * node_index + 1 , size) &&
+	return (is_complete(tree->left, 2 * node_index + 1, size) &&
 		is_complete(tree->right, 2 * node_index + 2, size));
 }
