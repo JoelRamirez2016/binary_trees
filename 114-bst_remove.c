@@ -21,7 +21,7 @@ bst_t *bst_remove_node(bst_t *root, bst_t *cur)
 
 		if (cur->left)
 			cur->left->parent = new_root;
-		new_root->right = cur->right;
+		new_root->right = cur->right != new_root ? cur->right : 0;
 
 		if (cur->right)
 			cur->right->parent = new_root;
