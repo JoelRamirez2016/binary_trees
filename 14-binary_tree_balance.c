@@ -7,7 +7,6 @@
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	printf("l: %lu, r: %lu", binary_tree_height(tree->left), binary_tree_height(tree->right));
 	return (tree ?
 		binary_tree_height(tree->left) - binary_tree_height(tree->right) : 0);
 }
